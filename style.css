@@ -1,3 +1,8 @@
+/* Box sizing rule added so that 100% width elements don't overflow due to padding */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -79,6 +84,7 @@ body {
     text-decoration: none;
     color: #1E3A8A;
     font-weight: bold;
+    display: block; /* Makes the entire text area clickable easily on mobile */
 }
 
 /* Buttons */
