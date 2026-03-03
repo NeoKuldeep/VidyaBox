@@ -16,3 +16,5 @@ Browse and download **university papers, syllabi, and textbooks** — all in one
 1. Clone the repository:
    ```bash
    git clone https://github.com/NeoKuldeep/VidyaBox.git
+
+🌐 **Live Website:** [Visit VidyaBox](https://NeoKuldeep.github.io/VidyaBox/)
