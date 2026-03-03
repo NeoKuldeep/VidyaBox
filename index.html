@@ -19,7 +19,6 @@
 
     <section class="welcome">
         <h1>Welcome to VidyaBox</h1>
-        <p id="quote"></p>
         <p>Browse university papers, syllabus & textbooks</p>
     </section>
 
@@ -98,23 +97,6 @@
                 filterPDFs();
             }
         });
-
-        // Array of motivational quotes
-        const quotes = [
-            "\"Knowledge shared is knowledge multiplied.\"",
-            "\"Education is the passport to the future, for tomorrow belongs to those who prepare for it today.\" – Malcolm X",
-            "\"Learning is a treasure that will follow its owner everywhere.\" – Chinese Proverb",
-            "\"The beautiful thing about learning is that nobody can take it away from you.\" – B.B. King",
-            "\"Education is not the filling of a pail, but the lighting of a fire.\" – W.B. Yeats",
-            "\"Study not to know more, but to know better.\""
-        ];
-
-        // Pick a random quote each time page loads
-        function showRandomQuote() {
-            const quoteElement = document.getElementById("quote");
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            quoteElement.textContent = quotes[randomIndex];
-        }
 
         // Run when page loads
         window.onload = showRandomQuote;
