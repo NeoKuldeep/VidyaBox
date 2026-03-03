@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VidyaBox</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">VidyaBox</a>
+        </div>
+    </nav>
+
+    <!-- Welcome -->
+    <section class="welcome">
+        <h1>Welcome to VidyaBox</h1>
+        <p id="quote"></p>
+        <p>Browse university papers, syllabus & textbooks</p>
+    </section>
+
+    <!-- All PDFs -->
+    <section class="pdf-list">
+        <!-- Search Container -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search PDFs...">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <ul id="pdfContainer">
+            <li><a href="https://drive.google.com/file/d/EXAMPLE_ID/view" target="_blank">Mathematics Paper (2026)</a>
+            </li>
+            <li><a href="https://drive.google.com/file/d/EXAMPLE_ID/view" target="_blank">Physics Syllabus (2026)</a>
+            </li>
+            <li><a href="https://drive.google.com/file/d/EXAMPLE_ID/view" target="_blank">Chemistry Textbook (2025)</a>
+            </li>
+            <li><a href="https://drive.google.com/file/d/EXAMPLE_ID/view" target="_blank">Computer Science Notes
+                    (2024)</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 VidyaBox. All rights reserved.</p>
+        <div class="contact">
+            <p>📬 Contact Me</p>
+            <ul>
+                <li><a href="https://t.me/Kd_EeP" target="_blank">Telegram</a></li>
+                <li><a href="https://wa.me/8822872994" target="_blank">WhatsApp</a></li>
+                <li><a href="https://github.com/NeoKuldeep" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const searchBar = document.getElementById("searchBar");
+        const searchBtn = document.getElementById("searchBtn");
+        const pdfContainer = document.getElementById("pdfContainer");
+        const pdfItems = pdfContainer.getElementsByTagName("li");
+
+        // Function to filter PDFs
+        function filterPDFs() {
+            const query = searchBar.value.toLowerCase().trim();
+            for (let i = 0; i < pdfItems.length; i++) {
+                const text = pdfItems[i].innerText.toLowerCase();
+                if (text.includes(query)) {
+                    pdfItems[i].style.display = "";
+                } else {
+                    pdfItems[i].style.display = "none";
+                }
+            }
+        }
+
+        // Search button click
+        searchBtn.addEventListener("click", filterPDFs);
+
+        // Enter key press inside search bar
+        searchBar.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // prevent page reload
+                filterPDFs();
+            }
+        });
+
+        // Array of motivational quotes
+        const quotes = [
+            "\"Knowledge shared is knowledge multiplied.\"",
+            "\"Education is the passport to the future, for tomorrow belongs to those who prepare for it today.\" – Malcolm X",
+            "\"Learning is a treasure that will follow its owner everywhere.\" – Chinese Proverb",
+            "\"The beautiful thing about learning is that nobody can take it away from you.\" – B.B. King",
+            "\"Education is not the filling of a pail, but the lighting of a fire.\" – W.B. Yeats",
+            "\"Study not to know more, but to know better.\""
+        ];
+
+        // Pick a random quote each time page loads
+        function showRandomQuote() {
+            const quoteElement = document.getElementById("quote");
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteElement.textContent = quotes[randomIndex];
+        }
+
+        // Run when page loads
+        window.onload = showRandomQuote;
+    </script>
+</body>
+
+</html>
